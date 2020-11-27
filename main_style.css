@@ -1,0 +1,28 @@
+body {
+  margin: 40px auto;
+  max-width: 650px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: rgb(68, 63, 63);
+  background-color: #f0efec;
+  padding: 0;
+  font-family: "Satisfy", cursive;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-size: 35vw;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
