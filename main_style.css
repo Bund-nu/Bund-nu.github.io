@@ -12,16 +12,24 @@ body {
 
 section {
   min-height: 100vh;
-  scroll-snap-align: start;
   padding: 1rem;
   position: relative;
+  scroll-snap-align: start;
+}
+
+div.clean_text>p {
+  scroll-snap-align: none;
+}
+
+div.clean_text>p:last-child {
+  scroll-snap-align: end;
 }
 
 h1,
 h2,
 h3 {
   line-height: 1.2;
-  font-family: "Satisfy", cursive;
+  font-family: 'Source Serif Pro', serif;
 }
 
 .centered {
@@ -43,4 +51,9 @@ h3 {
 #bundbunden {
   font-size: 14vw;
   height: 100vh;
+}
+
+#bund>h1,
+#bundbunden>h1 {
+  font-family: "Satisfy", cursive;
 }
