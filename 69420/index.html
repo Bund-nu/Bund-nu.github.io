@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://kurser.dtu.dk/bundles_js_general?v=m944kgjFG7-r2HFwxi7Q_xDuvGXt8MWkcxYxVH_TSmE1"></script>
+
+    <title>69420 Introduktion til LAB</title>
+    <link
+      href="https://kurser.dtu.dk/bundles_css_general?v=EprIu_e-uCbOBLNXE-1nuago-sTZxolNQbtJF8D0hv81"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+
+    <style>
+      .information > table > tbody > tr > td {
+        padding-top: 4px;
+        vertical-align: top;
+      }
+
+      .information > table > tbody > tr > td:first-child {
+        width: 30%;
+      }
+
+      .bar {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .bar:first-child {
+        margin-top: 0px;
+      }
+
+      .box {
+        padding-bottom: 10px;
+      }
+
+      .popover {
+        font-size: 0.9em;
+      }
+
+      .popover .popover-title {
+        font-size: 1em;
+      }
+
+      .popover input {
+        width: 100%;
+      }
+
+      .CourseLink {
+        display: inline-block;
+      }
+    </style>
+    <script>
+      var holdings = [];
+      $(document).on("click", function (e) {
+        $('[data-toggle="popover"],[data-original-title]').each(function () {
+          //the 'is' for buttons that trigger popups
+          //the 'has' for icons within a button that triggers a popup
+          if (
+            !$(this).is(e.target) &&
+            $(this).has(e.target).length === 0 &&
+            $(".popover").has(e.target).length === 0
+          ) {
+            (
+              ($(this).popover("hide").data("bs.popover") || {}).inState || {}
+            ).click = false; // fix for BS 3.3.6
+          }
+        });
+      });
+      $(function () {
+        $(".permalink").popover({
+          placement: "left",
+          title: "Permalinks",
+          content: function () {
+            return $("#permalinkBox").html();
+          },
+          trigger: "click",
+          html: true,
+        });
+        if (lines.length != 0) {
+          var groups = [];
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i];
+            if (line == "") {
+              continue;
+            }
+            var found = false;
+            var key = line.split(",")[0];
+            var me = { id: key, values: [line] };
+
+            for (var j = 0; j < groups.length; j++) {
+              if (groups[j].id == me.id) {
+                groups[j].values.push(me.values[0]);
+                found = true;
+              }
+            }
+            if (!found) {
+              groups.push(me);
+            }
+          }
+
+          var str = "";
+          $(groups).each(function () {
+            if (this.values.length > 3) {
+              str +=
+                "<span class='expander' style='color:#b20000;cursor:pointer'>" +
+                this.id +
+                ", see more<br/></span>";
+              $(this.values).each(function () {
+                str += "<span style='display:none'>" + this + "<br/></span>";
+              });
+            } else {
+              $(this.values).each(function () {
+                str += "<span>" + this + "<br/></span>";
+              });
+            }
+          });
+          $("#studiebox").html(str);
+          $(".expander").click(function () {
+            var node = $(this).nextUntil(".expander").show();
+            $(this).hide();
+          });
+        }
+
+        if (holdings.length != 0) {
+          var str = "<td>Course holdings</td><td>";
+          for (var i = 0; i < holdings.length; i++) {
+            str +=
+              "<div>" +
+              holdings[i][0] +
+              (holdings[i][1] != null ? "<br/>" + holdings[i][1] : "") +
+              "</div>";
+          }
+
+          str += "</td>";
+          $("#courseHoldingsBox").html(str);
+        }
+      });
+    </script>
+
+    <link rel="shortcut icon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <div class="dturedbackground">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="pull-right">
+              <span><a href="/">English</a></span>
+              <span class="seperator">|</span>
+              <span><a href="/">Bund</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dtugreybackground">
+      <div class="dtugreybackgroundoverlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <a href="/search">
+                <img
+                  class="pull-left logo-img"
+                  style="padding: 10px 0"
+                  src="dtulogo_colour.png"
+                />
+              </a>
+              <span
+                class="mofoclass pull-right"
+                style="position: absolute; bottom: 1px; right: 13px"
+              >
+                <ul class="nav nav-tabs hidden-print">
+                  <li role="presentation" class="active">
+                    <a href="https://kurser.dtu.dk/search">Kursussøgning</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="https://kurser.dtu.dk/course/gotoStudyplanner"
+                      >Studieplanlæggeren</a
+                    >
+                  </li>
+                </ul>
+              </span>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container body-content">
+      <ul class="nav nav-tabs hidden-print">
+        <li role="presentation" class="active"><a href="#">69420</a></li>
+        <li role="presentation"><a href="/">Information</a></li>
+      </ul>
+      <div class="row hidden-print">
+        <div class="col-xs-12">
+          <span
+            class="glyphicon glyphicon-print pull-right clickable"
+            onclick="window.print()"
+            style="padding-left: 3px; font-size: 16px"
+          ></span>
+          <span
+            class="glyphicon glyphicon-link pull-right permalink clickable"
+            style="padding-left: 3px; font-size: 16px"
+          ></span>
+        </div>
+      </div>
+      <div id="pagecontents" name="pagecontents">
+        <div class="row">
+          <div class="col-xs-8">
+            <h2
+              style="font-family: verdana; font-size: 18px; margin-bottom: 10px"
+            >
+              69420 Introduktion til LAB
+            </h2>
+          </div>
+          <div class="col-xs-4">
+            <h2
+              style="
+                font-family: verdana;
+                font-size: 18px;
+                margin-bottom: 10px;
+                text-align: right;
+              "
+            >
+              2020/2021
+            </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="box information">
+              <div class="bar">Kursusinformation</div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><label>Ikke sammensat titel</label></td>
+                    <td>Introduktion til Lær At Bunde</td>
+                  </tr>
+                  <tr>
+                    <td><label>Undervisningssprog</label></td>
+                    <td>Dansk</td>
+                  </tr>
+                  <tr>
+                    <td><label>Point( ECTS )</label></td>
+                    <td>4.5%</td>
+                  </tr>
+                  <tr>
+                    <td><label>Kursustype</label></td>
+                    <td>
+                      <div>Bachelor</div>
+                      <div>Kurset udbydes som enkeltfag</div>
+                      <div>Naturvidenskabeligt grundfag</div>
+                      <div></div>
+                      <div id="studiebox" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                <tbody id="DTU-Course-Analyzer">
+                  <tr>
+                    <td>
+                      <b><span>—DTU Course Analyzer—</span></b>
+                    </td>
+                    <td><span id="dca-td-0"></span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b><span>Percent passed</span></b>
+                    </td>
+                    <td>
+                      <span id="dca-td-3" style="background-color: #06ff25"
+                        >100%</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b><span>Course rating percentile</span></b>
+                    </td>
+                    <td>
+                      <span id="dca-td-4" style="background-color: #06ff25"
+                        >100000%</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b><span>Workscore percentile</span></b>
+                    </td>
+                    <td>
+                      <span id="dca-td-5" style="background-color: #cdff2b"
+                        >64.4%</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b><span>Lazyscore percentile 🍺</span></b>
+                    </td>
+                    <td>
+                      <span id="dca-td-6" style="background-color: #06ff25"
+                        >100%</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <b
+                        ><a
+                          href="https://github.com/OskarNS/dtu-course-analyzer/blob/master/README.md"
+                          target="_blank"
+                          ><label>What is this?</label></a
+                        ></b
+                      >
+                    </td>
+                    <td><span id="dca-td-7"></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label
+                        ><a href="http://kurser.dtu.dk/schedule/01069"
+                          >Skemaplacering</a
+                        ></label
+                      >
+                    </td>
+                    <td>Hele året</td>
+                  </tr>
+                  <tr>
+                    <td><label>Undervisningens placering</label></td>
+                    <td>Kælderbaren eller Verners</td>
+                  </tr>
+                  <tr>
+                    <td><label>Undervisningsform</label></td>
+                    <td>Vi tager på LAB øvelser</td>
+                  </tr>
+                  <tr>
+                    <td><label>Kursets varighed</label></td>
+                    <td>Så hurtigt som du kan bunde</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label
+                        ><a
+                          href="http://www.dtu.dk/english/education/examination-timetable"
+                        >
+                          Eksamensplacering</a
+                        ></label
+                      >
+                    </td>
+                    <td>Hvor end bumserne siger det</td>
+                  </tr>
+                  <tr>
+                    <td><label>Evalueringsform</label></td>
+                    <td>Mundtlig eksamination</td>
+                  </tr>
+                  <tr>
+                    <td><label>Hjælpemidler</label></td>
+                    <td>Værktøjer vist gennem kurset.</td>
+                  </tr>
+                  <tr>
+                    <td><label>Bedømmelsesform</label></td>
+                    <td>Bestået / ikke bestået, intern eksaminator</td>
+                  </tr>
+                  <tr>
+                    <td><label>Anbefalet forudsætninger</label></td>
+                    <td>Ingen</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><label>Ansvarlige</label></td>
+                    <td>Bumserne<br /></td>
+                  </tr>
+                  <tr>
+                    <td><label>Home page</label></td>
+                    <td><a class="menulink" href="/">http://bund.nu/</a></td>
+                  </tr>
+                  <tr>
+                    <td><label>Tilmelding</label></td>
+                    <td>
+                      <div>Du siger bare til.</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label>Mulighed for GRØN DYST deltagelse</label></td>
+                    <td>
+                      Kontakt underviseren for information om hvorvidt dette
+                      kursus giver den studerende mulighed for at lave eller
+                      forberede et projekt som kan deltage i DTUs
+                      studenterkonference om bæredygtighed, klimateknologi og
+                      miljø (GRØN DYST). Se mere på
+                      <a class="menulink" href="http://www.groendyst.dtu.dk"
+                        >http://www.groendyst.dtu.dk</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="box">
+              <div class="bar">Overordnede kursusmål</div>
+              Kursets emner udgør øvelser i at bunde og lære forskellige
+              teknikker i at bunde.
+              <div class="bar">Læringsmål</div>
+              En studerende, der fuldt ud har opfyldt kursets mål, vil kunne:
+
+              <ul>
+                <li>Bunde.</li>
+              </ul>
+              <div class="bar">Kursusindhold</div>
+              Vi vil gennemgå bongs, bund fra en flaske, bund fra en dåse, bund
+              en øl, bund en cider og bund en bundemokai.
+              <div class="bar">Bemærkninger</div>
+              Bund.
+              <div class="bar">Sidst opdateret</div>
+              18th of July 2020
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: none" id="permalinkBox">
+        <div>Kopier links for linkning til denne kursusbeskrivelse</div>
+        <div>
+          <b>Denne version:</b
+          ><input type="text" value="http://bund.nu/69420" />
+        </div>
+        <div>
+          <b>Nyeste version:</b
+          ><input type="text" value="http://bund.nu/69420" />
+        </div>
+        <div>
+          <em>Denne version</em> vil altid linke til denne version af
+          kursusbeskrivelsen.
+        </div>
+        <div>
+          <ewm>Nyeste version</ewm> vil linke til den nyeste version af kursusbeskrivelsen
+        <div>
+      </div>
+    </div>
+  </body>
+</html>
