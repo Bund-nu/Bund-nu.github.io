@@ -1,5 +1,6 @@
 html {
   scroll-snap-type: y proximity;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -7,7 +8,7 @@ body {
   line-height: 1.6;
   color: rgb(68, 63, 63);
   background-color: #f0efec;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -20,7 +21,7 @@ section {
 }
 
 div.clean_text,
-div.clean_text>p {
+div.clean_text > p {
   scroll-snap-align: none;
 }
 
@@ -28,7 +29,7 @@ h1,
 h2,
 h3 {
   line-height: 1.2;
-  font-family: 'Source Serif Pro', serif;
+  font-family: "Source Serif Pro", serif;
 }
 
 .centered {
@@ -51,8 +52,28 @@ h3 {
   height: 100vh;
 }
 
-#bund>h1,
-#bundbunden>h1 {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+#bund > h1,
+#bundbunden > h1 {
   font-size: 24vmin;
   font-family: "Satisfy", cursive;
 }
