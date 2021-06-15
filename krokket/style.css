@@ -3,13 +3,13 @@ html {
 }
 
 body {
-  font-size: 100px;
+  font-size: 12vmin;
   color: rgb(68, 63, 63);
   background-color: #f0efec;
   font-family: "Raleway", sans-serif;
 }
 
-p {
+div {
   position: fixed;
   top: 50%;
   left: 50%;

@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <p id="tekst" style="visibility: visible;">Der er krokket om <span class="minutes"></span> minutter og <span class="seconds"></span> sekunder </p>
+    <div id="tekst" style="visibility: visible;">Der er krokket om <span class="minutes"></span> minutter og <span class="seconds"></span> sekunder </div>
   </body>
 
   <script>
@@ -58,10 +58,13 @@
   
         minutesSpan.innerHTML = ("" + t.minutes).slice(-2);
         secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
+
+        document.title = "Krokket om " + t.minutes + " min og " + t.seconds + " sekunder";
   
         if (t.total <= 0) {
           clearInterval(timeinterval);
           clock.innerHTML = "Så er der sgu krokket";
+          document.title = "Så er der sgu krokket"
         }
       }
   
@@ -71,7 +74,7 @@
   
     var deadline = new Date(Date.now() + (5*60*1000));
     initializeClock("tekst", deadline);
-    document.getElementById("demo").innerHTML = deadline;
+    // document.getElementById("demo").innerHTML = deadline;
   </script>
 </html>
 
