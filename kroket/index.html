@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="da">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,11 +27,14 @@
     />
     <title>Hvornår er der krokket?</title>
 
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div id="tekst" style="visibility: visible;">Der er krokket om <span class="minutes"></span> minutter og <span class="seconds"></span> sekunder </div>
+    <div id="tekst" style="visibility: visible">
+      Der er krokket om <span class="minutes"></span> minutter og
+      <span class="seconds"></span> sekunder
+    </div>
   </body>
 
   <script>
@@ -43,36 +46,36 @@
       return {
         total: t,
         minutes: minutes,
-        seconds: seconds
+        seconds: seconds,
       };
-      
     }
-  
+
     function initializeClock(id, endtime) {
       var clock = document.getElementById(id);
       var minutesSpan = clock.querySelector(".minutes");
       var secondsSpan = clock.querySelector(".seconds");
-  
+
       function updateClock() {
         var t = getTimeRemaining(endtime);
-  
+
         minutesSpan.innerHTML = ("" + t.minutes).slice(-2);
         secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
 
-        document.title = "Krokket om " + t.minutes + " min og " + t.seconds + " sekunder";
-  
+        document.title =
+          "Krokket om " + t.minutes + " min og " + t.seconds + " sekunder";
+
         if (t.total <= 0) {
           clearInterval(timeinterval);
           clock.innerHTML = "Så er der sgu krokket";
-          document.title = "Så er der sgu krokket"
+          document.title = "Så er der sgu krokket";
         }
       }
-  
+
       updateClock();
       var timeinterval = setInterval(updateClock, 1000);
     }
-  
-    var deadline = new Date(Date.now() + (5*60*1000));
+
+    var deadline = new Date(Date.now() + 5 * 60 * 1000);
     initializeClock("tekst", deadline);
     // document.getElementById("demo").innerHTML = deadline;
   </script>
