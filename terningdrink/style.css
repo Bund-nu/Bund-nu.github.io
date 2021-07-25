@@ -1,0 +1,39 @@
+html,
+body {
+  height: 100%;
+  display: grid;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: 4vmin;
+  color: rgb(68, 63, 63);
+  background-color: #f0efec;
+  font-family: "Raleway", sans-serif;
+}
+
+button {
+  background-color: rgb(75, 67, 67); /* Green */
+  border: none;
+  color: #f0efec;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vmin;
+}
+
+.centerMe {
+  margin: auto;
+}
+
+#tekst {
+  display: grid;
+}
+
+#startButton {
+  font-size: 10vmin;
+}
