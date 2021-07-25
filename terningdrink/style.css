@@ -13,7 +13,7 @@ body {
   color: rgb(68, 63, 63);
   background-color: #f0efec;
   font-family: "Raleway", sans-serif;
-  padding: 5%;
+  margin: 0;
 }
 
 button {
@@ -33,6 +33,7 @@ button {
 
 #tekst {
   display: grid;
+  padding: 5%;
 }
 
 #startButton {
