@@ -75,7 +75,7 @@
       "Grenadine",
       "Flormelis",
       "Brun Farin",
-      "flødeskum",
+      "Flødeskum",
     ];
 
     /*
@@ -83,15 +83,10 @@
     */
     function updateSpans(id, spirits1, spirits2, mixer, topping) {
       let topDiv = document.getElementById(id);
-      let spirit1_span = topDiv.querySelector(".spirits1");
-      let spirit2_span = topDiv.querySelector(".spirits2");
-      let mixer_span = topDiv.querySelector(".mixer");
-      let topping_span = topDiv.querySelector(".topping");
-
-      spirit1_span.innerHTML = spirits1;
-      spirit2_span.innerHTML = spirits2;
-      mixer_span.innerHTML = mixer;
-      topping_span.innerHTML = topping;
+      topDiv.querySelector(".spirits1").innerHTML = spirits1;
+      topDiv.querySelector(".spirits2").innerHTML = spirits2;
+      topDiv.querySelector(".mixer").innerHTML = mixer;
+      topDiv.querySelector(".topping").innerHTML = topping;
     }
 
     /*
