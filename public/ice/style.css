@@ -1,0 +1,37 @@
+/* $size: 100px; */
+:root {
+  --ice-height: min(100vw, 50vh);
+  --ice-width: min(28vw, 14vh);
+  --x-speed: calc(2437ms * 2);
+  --y-speed: calc(719ms * 2);
+}
+
+body {
+  margin: 0;
+}
+
+img,
+div {
+  width: var(--ice-width);
+  height: var(--ice-height);
+}
+
+.x {
+  animation: x var(--x-speed) linear infinite alternate;
+}
+
+.y {
+  animation: y var(--y-speed) linear infinite alternate;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100vw - var(--ice-width)));
+  }
+}
+
+@keyframes y {
+  100% {
+    transform: translateY(calc(100vh - var(--ice-height)));
+  }
+}

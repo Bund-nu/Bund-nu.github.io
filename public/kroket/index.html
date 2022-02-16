@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Bund!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bund.nu" />
+    <meta property="og:description" content="Bund!" />
+    <meta name="description" content="Bund!" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Satisfy&family=Source+Serif+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hvornår er der krokket?</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="tekst" style="visibility: visible">
+      Der er krokket om <span class="minutes"></span> minutter og
+      <span class="seconds"></span> sekunder
+    </div>
+  </body>
+
+  <script>
+    function getTimeRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor((t / 1000) % 60);
+      var minutes = Math.floor((t / 1000 / 60) % 60);
+
+      return {
+        total: t,
+        minutes: minutes,
+        seconds: seconds,
+      };
+    }
+
+    function initializeClock(id, endtime) {
+      var clock = document.getElementById(id);
+      var minutesSpan = clock.querySelector(".minutes");
+      var secondsSpan = clock.querySelector(".seconds");
+
+      function updateClock() {
+        var t = getTimeRemaining(endtime);
+
+        minutesSpan.innerHTML = ("" + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
+
+        document.title =
+          "Krokket om " + t.minutes + " min og " + t.seconds + " sekunder";
+
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
+          clock.innerHTML = "Så er der sgu krokket";
+          document.title = "Så er der sgu krokket";
+        }
+      }
+
+      updateClock();
+      var timeinterval = setInterval(updateClock, 1000);
+    }
+
+    var deadline = new Date(Date.now() + 5 * 60 * 1000);
+    initializeClock("tekst", deadline);
+    // document.getElementById("demo").innerHTML = deadline;
+  </script>
+</html>
+
+<!-- Bunde bunde
+
+     :""""""":
+     |.......|
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     :       :
+    /         \
+   /           \
+  :             :
+  |             |
+  |             |
+  |             |
+  |  SMIRNOFF   |
+  |             |
+  |   ..oOo..   |
+  | .         . |
+  | :  I C E  : |
+  |  :       :  |
+  |   ..   ..   |
+  |     :.:     |
+  |             |
+  |             |
+  |             |
+  |             |
+  |             |
+  |             |
+  |.............| -->

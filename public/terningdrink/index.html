@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta content="text/html" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Bund!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bund.nu" />
+    <meta property="og:description" content="Bund!" />
+    <meta name="description" content="Bund!" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&family=Satisfy&family=Source+Serif+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>Terning drink</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body id="main">
+    <div class="centerMe">
+      <button id="startButton" onclick="main()">Lav mig en drink</button>
+    </div>
+  </body>
+
+  <script>
+    const spirits = [
+      "Jägermeister",
+      "Rom",
+      "Gin",
+      "Tequila",
+      "Fernet Branca",
+      "Fireball",
+      "Pisang Ambon",
+      "Passoa",
+      "Cointreau",
+      "Vodka",
+      "Minttu",
+      "Cuba Caramel",
+      "Licqour 43",
+      "Kahlua",
+      "Sambuca",
+    ];
+    const mixer = [
+      "Cola",
+      "Tonic",
+      "Schweppes Lemon",
+      "Hindbærbrus",
+      "Faxe Kondi",
+      "Mælk",
+      "Appelsinjuice",
+      "Danskvand",
+    ];
+    const topping = [
+      "Peber",
+      "Roses Lime",
+      "Tabasco",
+      "Absinth",
+      "Citron",
+      "Lime",
+      "Stjerne Anis",
+      "Grenadine",
+      "Flormelis",
+      "Brun Farin",
+      "Flødeskum",
+    ];
+
+    /*
+    Update the spans with the given variables
+    */
+    function updateSpans(id, spirits1, spirits2, mixer, topping) {
+      let topDiv = document.getElementById(id);
+      topDiv.querySelector(".spirits1").innerHTML = spirits1;
+      topDiv.querySelector(".spirits2").innerHTML = spirits2;
+      topDiv.querySelector(".mixer").innerHTML = mixer;
+      topDiv.querySelector(".topping").innerHTML = topping;
+    }
+
+    /*
+    Generates 4 random numbers for:
+    spirites1
+    spirites2
+    mixer
+    topping
+    in that order
+    */
+    function randomSelector() {
+      let spirits1_id = Math.floor(Math.random() * spirits.length);
+      let spirits2_id;
+      do {
+        spirits2_id = Math.floor(Math.random() * spirits.length);
+      } while (spirits1_id === spirits2_id);
+      let mixer_id = Math.floor(Math.random() * mixer.length);
+      let topping_id = Math.floor(Math.random() * topping.length);
+      return [
+        spirits[spirits1_id],
+        spirits[spirits2_id],
+        mixer[mixer_id],
+        topping[topping_id],
+      ];
+    }
+
+    function main() {
+      // document.getElementById("startButton").style["visibility"] = "hidden";
+      // document.getElementById("tekst").style["visibility"] = "visible";
+      document.getElementById("main").innerHTML = `
+      <div id="tekst" class="centerMe" style="display:grid">
+        Du skal blande
+        <ul>
+          <li>2 cl <span class="spirits1"></span></li>
+          <li>2 cl <span class="spirits2"></span></li>
+          <li>Top op med <span class="mixer"></span></li>
+          <li>Garnish med lidt <span class="topping"></span></li>
+        </ul>
+        <div class="centerMe"><button onclick="main()">Lav mig en ny drink</button></div>
+      </div>
+      `;
+      makeDrink();
+    }
+    function makeDrink() {
+      updateSpans("tekst", ...randomSelector());
+    }
+  </script>
+</html>
+
+<!-- Bunde bunde
+
+     :""""""":
+     |.......|
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     |       |
+     :       :
+    /         \
+   /           \
+  :             :
+  |             |
+  |             |
+  |             |
+  |  SMIRNOFF   |
+  |             |
+  |   ..oOo..   |
+  | .         . |
+  | :  I C E  : |
+  |  :       :  |
+  |   ..   ..   |
+  |     :.:     |
+  |             |
+  |             |
+  |             |
+  |             |
+  |             |
+  |             |
+  |.............| -->
